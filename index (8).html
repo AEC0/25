@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f7efe4">
+  <title>Happy Birthday, Amulya ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&family=Kalam:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f7efe4;
+      --paper: #fffaf3;
+      --ink: #252229;
+      --muted: #756e75;
+      --dim: #9a9195;
+      --red: #b85f67;
+      --gold: #d3a54d;
+      --green: #647b66;
+      --line: rgba(37, 34, 41, .12);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", system-ui, sans-serif;
+      --mono: "DM Mono", monospace;
+      --hand: "Kalam", cursive;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(255, 255, 255, .8), transparent 28rem),
+        radial-gradient(circle at 90% 70%, rgba(184, 95, 103, .05), transparent 20rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: .18;
+      background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, .018) 3px, rgba(0, 0, 0, .018) 4px)
+    }
+
+    button,
+    a {
+      font: inherit
+    }
+
+    button {
+      cursor: pointer
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .top {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 54px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      background: rgba(247, 239, 228, .78);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(37, 34, 41, .07)
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #625c64;
+      font: 500 .6rem/1 var(--mono);
+      letter-spacing: .04em
+    }
+
+    .brand-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red)
+    }
+
+    .music {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .38);
+      color: #777078;
+      border-radius: 999px;
+      padding: 9px 11px;
+      font: 500 .6rem/1 var(--mono)
+    }
+
+    .screen {
+      width: min(100% - 28px, 760px);
+      margin: auto;
+      min-height: 100svh;
+      padding: 92px 0 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .inner {
+      width: 100%
+    }
+
+    .center {
+      text-align: center
+    }
+
+    .kicker {
+      font: 500 .62rem/1 var(--mono);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 16px
+    }
+
+    .hero h1,
+    .title,
+    .final h2 {
+      font: 400 clamp(3.8rem, 17vw, 7.2rem)/.86 var(--serif);
+      letter-spacing: -.055em
+    }
+
+    .hero h1 em,
+    .title em,
+    .final h2 em {
+      font-style: italic;
+      color: var(--red)
+    }
+
+    .hero p {
+      max-width: 540px;
+      margin: 21px auto 0;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.82;
+      font-weight: 300
+    }
+
+    .hand {
+      margin-top: 20px;
+      font: 400 1rem/1.45 var(--hand);
+      color: #71676f
+    }
+
+    .scroll-btn {
+      display: inline-block;
+      margin-top: 27px;
+      border: 1px solid rgba(184, 95, 103, .22);
+      background: rgba(184, 95, 103, .05);
+      color: var(--red);
+      border-radius: 999px;
+      padding: 12px 16px;
+      font: 500 .62rem/1 var(--mono)
+    }
+
+    .stats {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px
+    }
+
+    .stat {
+      min-height: 130px;
+      padding: 18px 14px;
+      background: rgba(255, 255, 255, .43);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stat strong {
+      font: 400 clamp(2.2rem, 10vw, 3.6rem)/.8 var(--serif);
+      color: var(--red)
+    }
+
+    .stat small {
+      font: 400 .58rem/1.45 var(--mono);
+      color: #8c8389;
+      text-transform: uppercase;
+      letter-spacing: .06em
+    }
+
+    .small-note {
+      margin-top: 17px;
+      text-align: center;
+      color: #8f868c;
+      font: 400 .65rem/1.5 var(--mono)
+    }
+
+    .note-box {
+      margin-top: 29px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 27px 22px;
+      box-shadow: 0 18px 40px rgba(47, 35, 26, .07);
+      position: relative
+    }
+
+    .note-box:before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 18%;
+      width: 78px;
+      height: 18px;
+      background: rgba(211, 165, 77, .24);
+      transform: rotate(-3deg)
+    }
+
+    .note-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9c9297;
+      font: 400 .58rem/1.5 var(--mono);
+      margin-bottom: 20px
+    }
+
+    .seal {
+      width: 29px;
+      height: 29px;
+      border: 1px solid rgba(184, 95, 103, .24);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--red)
+    }
+
+    .note-box p {
+      font-size: .87rem;
+      line-height: 1.92;
+      color: #665f66;
+      font-weight: 300;
+      margin-bottom: 14px
+    }
+
+    .note-box p strong {
+      color: var(--ink);
+      font-weight: 500
+    }
+
+    .sig {
+      display: block;
+      margin-top: 22px;
+      font: italic 400 1.7rem/1 var(--serif);
+      color: var(--red)
+    }
+
+    .sig2 {
+      display: block;
+      margin-top: 7px;
+      color: #999096;
+      font: 400 .59rem/1.4 var(--mono)
+    }
+
+    .final {
+      text-align: center
+    }
+
+    .final p {
+      max-width: 480px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.8;
+      font-weight: 300
+    }
+
+    .cake {
+      position: relative;
+      width: 190px;
+      height: 160px;
+      margin: 31px auto 7px;
+      touch-action: manipulation
+    }
+
+    .base {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 17px;
+      height: 48px;
+      border-radius: 10px 10px 18px 18px;
+      background: linear-gradient(#bb777f, #995965);
+      box-shadow: 0 16px 23px rgba(77, 46, 47, .16)
+    }
+
+    .topcake {
+      position: absolute;
+      left: 28px;
+      right: 28px;
+      bottom: 57px;
+      height: 58px;
+      border-radius: 12px 12px 18px 18px;
+      background: linear-gradient(#efd293, #d2aa60);
+      box-shadow: inset 0 5px 0 rgba(255, 255, 255, .25)
+    }
+
+    .topcake:after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      top: 17px;
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, .28);
+      box-shadow: 0 16px 0 rgba(255, 255, 255, .17)
+    }
+
+    .number-candle {
+      position: absolute;
+      z-index: 4;
+      bottom: 103px;
+      font: 700 2.7rem/.9 var(--sans);
+      color: #b85f67;
+      -webkit-text-stroke: 1px rgba(255, 250, 243, .9);
+      text-shadow: 0 2px 0 rgba(0, 0, 0, .04);
+    }
+
+    .number-candle.two {
+      left: 67px
+    }
+
+    .number-candle.three {
+      left: 101px
+    }
+
+    .flame {
+      position: absolute;
+      left: 50%;
+      top: -16px;
+      width: 11px;
+      height: 17px;
+      transform: translateX(-50%);
+      background: #f3cd69;
+      border-radius: 60% 40% 60% 40%;
+      box-shadow: 0 0 15px rgba(243, 205, 105, .7);
+      animation: flicker .55s infinite alternate
+    }
+
+    @keyframes flicker {
+      to {
+        transform: translateX(-50%) rotate(4deg) scale(1.06)
+      }
+    }
+
+    .cake.blown .flame {
+      opacity: 0;
+      transition: .15s
+    }
+
+    .wish {
+      position: absolute;
+      left: 50%;
+      bottom: 125px;
+      transform: translateX(-50%) translateY(12px);
+      opacity: 0;
+      color: var(--red);
+      font: 400 .95rem/1 var(--hand);
+      white-space: nowrap
+    }
+
+    .cake.blown .wish {
+      animation: wish .95s ease forwards
+    }
+
+    @keyframes wish {
+      25% {
+        opacity: 1
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-28px)
+      }
+    }
+
+    .hint {
+      font: 500 .6rem/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8c8389
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 9px;
+      flex-wrap: wrap;
+      margin-top: 25px
+    }
+
+    .btn {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, .35);
+      color: #6c656c;
+      border-radius: 999px;
+      padding: 11px 15px;
+      font: 500 .62rem/1 var(--mono)
+    }
+
+    .btn.primary {
+      background: var(--red);
+      border-color: var(--red);
+      color: white
+    }
+
+    .footer {
+      margin-top: 45px;
+      color: #aaa0a2;
+      font: 400 .55rem/1.5 var(--mono)
+    }
+
+    #toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      z-index: 500;
+      transform: translate(-50%, 70px);
+      background: #2f2a30;
+      color: #fffaf3;
+      border-radius: 999px;
+      padding: 9px 13px;
+      font: 400 .62rem/1 var(--mono);
+      transition: .3s ease;
+      white-space: nowrap
+    }
+
+    #toast.show {
+      transform: translate(-50%, 0)
+    }
+
+    #confetti {
+      position: fixed;
+      inset: 0;
+      z-index: 400;
+      pointer-events: none;
+      overflow: hidden
+    }
+
+    .conf {
+      position: absolute;
+      width: 7px;
+      height: 13px;
+      border-radius: 2px;
+      top: 42%;
+      left: 50%;
+      animation: fall var(--d) cubic-bezier(.16, .78, .25, 1) forwards;
+      background: var(--c)
+    }
+
+    @keyframes fall {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) rotate(0)
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(var(--r))
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: .7s cubic-bezier(.2, 1, .35, 1)
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none
+    }
+
+    @media(max-width:500px) {
+      .screen {
+        width: calc(100% - 26px);
+        padding: 88px 0 64px
+      }
+
+      .stats {
+        gap: 8px
+      }
+
+      .stat {
+        min-height: 124px;
+        padding: 15px 12px
+      }
+
+      .stat strong {
+        font-size: 2.5rem
+      }
+
+      .note-box {
+        padding: 25px 19px
+      }
+
+      .note-box p {
+        font-size: .85rem;
+        line-height: 1.9
+      }
+    }
+
+    @media(min-width:700px) {
+
+      .hero h1,
+      .title,
+      .final h2 {
+        font-size: 6.8rem
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top">
+    <div class="brand"><span class="brand-dot"></span> AMULYA · 2026</div>
+    <button class="music" id="musicBtn" aria-pressed="false">♫ tune on</button>
+  </header>
+
+  <div id="toast"></div>
+  <div id="confetti"></div>
+
+  <main>
+    <section class="screen hero" id="home">
+      <div class="inner center">
+        <div class="kicker reveal">a little birthday page</div>
+        <h1 class="reveal">Happy<br><em>Birthday,</em><br>Amulya.</h1>
+        <p class="reveal">
+          From 8th standard to one year after engineering —
+          a lot changed, a lot happened, and somehow we are still here.
+        </p>
+        <div class="hand reveal">some things don't need a photo to be remembered.</div>
+        <a class="scroll-btn reveal" href="#stats">keep going ↓</a>
+      </div>
+    </section>
+
+    <section class="screen" id="stats">
+      <div class="inner">
+        <div class="kicker reveal">01 · a few numbers</div>
+        <h2 class="title reveal">Not a lot.<br><em>Just enough.</em></h2>
+        <div class="stats">
+          <div class="stat reveal"><strong>8th</strong><small>where it started</small></div>
+          <div class="stat reveal"><strong>9+</strong><small>years of knowing you</small></div>
+          <div class="stat reveal"><strong>0</strong><small>good photos together</small></div>
+        </div>
+        <div class="small-note reveal">∞ memories · different colleges · still friends</div>
+        <div style="margin-top:36px;text-align:center" class="reveal">
+          <a class="scroll-btn" href="#note">one proper note ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="note">
+      <div class="inner">
+        <div class="kicker reveal">02 · okay, for real</div>
+        <h2 class="title reveal">One proper<br><em>birthday note.</em></h2>
+
+        <article class="note-box reveal">
+          <div class="note-top"><span>PRIVATE NOTE · 2026</span><span class="seal">✦</span></div>
+
+          <p>Hey Amulya,</p>
+
+          <p>
+            It's honestly a little crazy to think that we've known each other since
+            <strong>8th standard</strong>. From school days all the way through PUC,
+            and then four years of engineering in completely different places —
+            you've been around for a surprisingly large part of my life.
+          </p>
+
+          <p>
+            A lot has changed. We went to different colleges, got busy, had
+            different routines, and there were definitely phases when we didn't
+            talk regularly. But somehow, the friendship stayed there in the
+            background. And whenever we meet again, it never really feels like
+            we're starting from zero.
+          </p>
+
+          <p>
+            And yes — after all these years, we still somehow don't have a proper
+            collection of good photos together. Which is honestly impressive.
+            Maybe that's okay. We were probably <strong>too busy actually living
+              the memories</strong>.
+          </p>
+
+          <p>
+            I hope this birthday brings you more peaceful days, more reasons to
+            laugh, more moments that feel genuinely yours, and a lot of good
+            things to look forward to. Life doesn't always go according to plan,
+            but I hope this next chapter is a little kinder, a little lighter,
+            and full of people and moments that make you happy.
+          </p>
+
+          <p>
+            Whatever comes next, I'm glad our story made it this far. And yes,
+            we still need to fix the terrible photo record.
+          </p>
+
+          <span class="sig">Happy birthday, Amulya. ✦</span>
+          <span class="sig2">— Sathwik · the other troop leader</span>
+        </article>
+
+        <div style="text-align:center;margin-top:25px" class="reveal">
+          <a class="scroll-btn" href="#final">one last thing ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen final" id="final">
+      <div class="inner">
+        <div class="kicker reveal">03 · next chapter</div>
+        <h2 class="reveal">Make a wish,<br><em>Amulya.</em></h2>
+        <p class="reveal">
+          Here's to another year of good days, good people, good memories —
+          and maybe, finally, one genuinely good photo together.
+        </p>
+
+        <div class="cake reveal" id="cake" role="button" tabindex="0" aria-label="Make a birthday wish">
+          <div class="wish">make the next few years impossible to forget ✦</div>
+          <div class="number-candle two"><span class="flame"></span>2</div>
+          <div class="number-candle three"><span class="flame"></span>3</div>
+          <div class="topcake"></div>
+          <div class="base"></div>
+        </div>
+
+        <div class="hint reveal" id="cakeHint">tap the cake · make your wish</div>
+
+        <div class="buttons reveal">
+          <button class="btn primary" id="celebrate">✦ celebrate</button>
+          <button class="btn" id="restart">↑ start again</button>
+        </div>
+
+        <div class="footer reveal">made with memories · 8th standard → 2026</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const $ = s => document.querySelector(s);
+    const $$ = s => [...document.querySelectorAll(s)];
+
+    function revealNear() {
+      $$('.reveal').forEach(el => {
+        if (el.getBoundingClientRect().top < innerHeight * .92) el.classList.add('on');
+      });
+    }
+    const revealIO = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on') })
+    }, { threshold: .12 });
+    $$('.reveal').forEach(el => revealIO.observe(el));
+
+    let toastTimer;
+    function toast(msg) {
+      const el = $('#toast');
+      el.textContent = msg; el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2100);
+    }
+
+    function confetti() {
+      const box = $('#confetti');
+      const colors = ['#b85f67', '#d3a54d', '#647b66', '#58728a', '#f5e8d1'];
+      for (let i = 0; i < 58; i++) {
+        const p = document.createElement('span');
+        p.className = 'conf';
+        p.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
+        p.style.setProperty('--x', ((Math.random() - .5) * innerWidth * .95) + 'px');
+        p.style.setProperty('--y', (innerHeight * (.48 + Math.random() * .58)) + 'px');
+        p.style.setProperty('--r', ((Math.random() - .5) * 1200) + 'deg');
+        p.style.setProperty('--d', (.9 + Math.random() * 1) + 's');
+        p.style.left = (47 + Math.random() * 6) + '%';
+        p.style.top = (37 + Math.random() * 8) + '%';
+        box.appendChild(p);
+        setTimeout(() => p.remove(), 2200);
+      }
+      toast('✦ happy birthday, Amulya!');
+    }
+
+    /* Soft looping birthday melody */
+    let audioCtx = null, master = null, timer = null, playing = false;
+    const N = { C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23, G4: 392, A4: 440, C5: 523.25 };
+    function audioInit() {
+      if (!audioCtx) {
+        const C = window.AudioContext || window.webkitAudioContext;
+        if (!C) return false;
+        audioCtx = new C();
+        master = audioCtx.createGain();
+        master.gain.value = .032;
+        master.connect(audioCtx.destination);
+      }
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return true;
+    }
+    function note(freq, at, dur, vol = .032) {
+      if (!audioCtx || !master) return;
+      const o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'sine'; o.frequency.value = freq;
+      g.gain.setValueAtTime(.0001, at);
+      g.gain.exponentialRampToValueAtTime(vol, at + .025);
+      g.gain.exponentialRampToValueAtTime(.0001, at + dur);
+      o.connect(g).connect(master); o.start(at); o.stop(at + dur + .02);
+    }
+    function phrase(big = false) {
+      if (!audioInit()) return;
+      const seq = big
+        ? [N.C4, N.C4, N.D4, N.C4, N.F4, N.E4, N.C4, N.C4, N.D4, N.C4, N.G4, N.F4, N.C4, N.C4, N.C5, N.A4, N.F4, N.E4, N.D4, N.A4, N.A4, N.G4, N.F4, N.G4, N.F4]
+        : [N.C4, N.C4, N.D4, N.C4, N.F4, N.E4, N.C4, N.C4, N.D4, N.C4, N.G4, N.F4];
+      const step = big ? .19 : .35, t = audioCtx.currentTime + .02;
+      seq.forEach((f, i) => note(f, t + i * step, big ? .25 : .22, big ? .07 : .032));
+      if (big) {
+        [N.C4, N.F4, N.G4].forEach((f, i) => note(f, t + i * .07, 1.6, .025));
+      }
+    }
+    function startTune() {
+      if (!audioInit() || playing) return;
+      playing = true;
+      master.gain.setTargetAtTime(.032, audioCtx.currentTime, .08);
+      $('#musicBtn').textContent = '♫ tune on';
+      $('#musicBtn').setAttribute('aria-pressed', 'true');
+      const loop = () => { if (!playing) return; phrase(false); timer = setTimeout(loop, 4700) };
+      loop();
+    }
+    function stopTune() {
+      playing = false; clearTimeout(timer);
+      if (master && audioCtx) master.gain.setTargetAtTime(.0001, audioCtx.currentTime, .12);
+      $('#musicBtn').textContent = '♫ tune off';
+      $('#musicBtn').setAttribute('aria-pressed', 'false');
+    }
+    function finaleTune() {
+      if (!audioInit()) return;
+      if (!playing) startTune();
+      master.gain.setTargetAtTime(.11, audioCtx.currentTime, .12);
+      phrase(true);
+      setTimeout(() => { if (master && audioCtx) master.gain.setTargetAtTime(.045, audioCtx.currentTime, .65) }, 4000);
+    }
+
+    $('#musicBtn').addEventListener('click', () => {
+      if (playing) stopTune(); else startTune();
+      toast(playing ? '♫ birthday tune is ringing' : '♫ tune paused');
+    });
+
+    let blown = false;
+    function blowCake() {
+      if (blown) return;
+      blown = true;
+      $('#cake').classList.add('blown');
+      $('#cakeHint').textContent = 'wish made · now make the year count ✦';
+      finaleTune();
+      setTimeout(confetti, 180);
+    }
+    $('#cake').addEventListener('click', blowCake);
+    $('#cake').addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); blowCake() }
+    });
+    $('#celebrate').addEventListener('click', () => {
+      startTune(); confetti();
+    });
+    $('#restart').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* First tap starts sound on mobile and opens the page naturally. */
+    document.addEventListener('click', function firstTouch() {
+      startTune();
+      document.removeEventListener('click', firstTouch);
+    }, { once: true });
+
+    revealNear();
+  </script>
+</body>
+
+</html>
