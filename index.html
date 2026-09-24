@@ -474,9 +474,7 @@
       width: 7px;
       height: 13px;
       border-radius: 2px;
-      top: 42%;
-      left: 50%;
-      animation: fall var(--d) cubic-bezier(.16, .78, .25, 1) forwards;
+      animation: fall var(--d) linear forwards;
       background: var(--c)
     }
 
@@ -722,23 +720,27 @@
     function confetti(continuous = false) {
       const box = $('#confetti');
       const colors = ['#b85f67', '#d3a54d', '#647b66', '#58728a', '#f5e8d1'];
-      for (let i = 0; i < 35; i++) {
+      for (let i = 0; i < 45; i++) {
         const p = document.createElement('span');
         p.className = 'conf';
         p.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
-        p.style.setProperty('--x', ((Math.random() - .5) * innerWidth * .95) + 'px');
-        p.style.setProperty('--y', (innerHeight * (.48 + Math.random() * .58)) + 'px');
+        p.style.setProperty('--x', ((Math.random() - .5) * 250) + 'px');
+        p.style.setProperty('--y', (innerHeight + 150) + 'px');
         p.style.setProperty('--r', ((Math.random() - .5) * 1200) + 'deg');
-        p.style.setProperty('--d', (.9 + Math.random() * 1) + 's');
-        p.style.left = (47 + Math.random() * 6) + '%';
-        p.style.top = (37 + Math.random() * 8) + '%';
+        
+        const duration = 2.5 + Math.random() * 2.5;
+        p.style.setProperty('--d', duration + 's');
+        
+        p.style.left = (Math.random() * 100) + '%';
+        p.style.top = '-10%';
+        
         box.appendChild(p);
-        setTimeout(() => p.remove(), 2200);
+        setTimeout(() => p.remove(), duration * 1000 + 100);
       }
       if (!continuous) toast('✦ happy birthday, Amulya!');
       if (continuous) {
         clearTimeout(confettiTimer);
-        confettiTimer = setTimeout(() => confetti(true), 1500);
+        confettiTimer = setTimeout(() => confetti(true), 1200);
       }
     }
 
