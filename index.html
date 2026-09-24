@@ -503,7 +503,33 @@
       transform: none
     }
 
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--ink); color: var(--paper);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.8s ease;
+    }
+    .spinner {
+      width: 50px; height: 50px;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin 1s infinite linear;
+      margin-bottom: 20px;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .loader-text {
+      font: 500 0.85rem/1 var(--mono);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.5; } }
+
     @media(max-width:500px) {
+      .hero h1, .title, .final h2 {
+        line-height: 1.05;
+      }
       .screen {
         width: calc(100% - 26px);
         padding: 88px 0 64px
@@ -544,6 +570,10 @@
 </head>
 
 <body>
+  <div id="loader">
+    <div class="spinner"></div>
+    <div class="loader-text">Loading Memories...</div>
+  </div>
   <header class="top">
     <div class="brand"><span class="brand-dot"></span> AMULYA · 2026</div>
     <button class="music" id="musicBtn" aria-pressed="false">♫ tune on</button>
@@ -688,10 +718,11 @@
       toastTimer = setTimeout(() => el.classList.remove('show'), 2100);
     }
 
-    function confetti() {
+    let confettiTimer;
+    function confetti(continuous = false) {
       const box = $('#confetti');
       const colors = ['#b85f67', '#d3a54d', '#647b66', '#58728a', '#f5e8d1'];
-      for (let i = 0; i < 58; i++) {
+      for (let i = 0; i < 35; i++) {
         const p = document.createElement('span');
         p.className = 'conf';
         p.style.setProperty('--c', colors[Math.floor(Math.random() * colors.length)]);
@@ -704,7 +735,11 @@
         box.appendChild(p);
         setTimeout(() => p.remove(), 2200);
       }
-      toast('✦ happy birthday, Amulya!');
+      if (!continuous) toast('✦ happy birthday, Amulya!');
+      if (continuous) {
+        clearTimeout(confettiTimer);
+        confettiTimer = setTimeout(() => confetti(true), 1500);
+      }
     }
 
     /* Soft looping birthday melody */
@@ -777,14 +812,14 @@
       $('#cake').classList.add('blown');
       $('#cakeHint').textContent = 'wish made · now make the year count ✦';
       finaleTune();
-      setTimeout(confetti, 180);
+      setTimeout(() => confetti(true), 180);
     }
     $('#cake').addEventListener('click', blowCake);
     $('#cake').addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); blowCake() }
     });
     $('#celebrate').addEventListener('click', () => {
-      startTune(); confetti();
+      startTune(); confetti(true);
     });
     $('#restart').addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 
@@ -795,6 +830,14 @@
     }, { once: true });
 
     revealNear();
+
+    setTimeout(() => {
+      const l = $('#loader');
+      if (l) {
+        l.style.opacity = '0';
+        setTimeout(() => l.remove(), 800);
+      }
+    }, 4000);
   </script>
 </body>
 
